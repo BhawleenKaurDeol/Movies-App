@@ -62,7 +62,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const MediaItem = ({ media, navigation }) => {
   const handlePress = () => {
-    navigation.navigate('MediaDetail', { id: media.id }); // Navigate to details page
+    navigation.navigate('Details', { id: media.id }); // Navigate to details page
   };
 
   return (

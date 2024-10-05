@@ -41,7 +41,9 @@
 //  export default SearchScreen;
 
 import React, { useState } from 'react';
-import { View, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+import { View, TextInput, Button, FlatList, StyleSheet,Text } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import MovieItem from '../components/MovieItem';
 import MediaItem from '../components/MediaItem';  // Assuming MediaItem is in the same directory
 import { fetchMovies } from '../services/api';  // Function to fetch movies/TV shows
 
@@ -77,12 +79,12 @@ const SearchScreen = ({ navigation }) => {
       </Picker>
       <Button title="Search" onPress={handleSearch} />
       {results.length === 0 ? (
-        <Text>Enter a search term...</Text>
+        <Text style={styles.text}>Plese initiate a Search</Text>
       ) : (
         <FlatList
           data={results}
           renderItem={({ item }) => (
-            <MediaItem media={item} navigation={navigation} /> // Pass navigation prop
+            <MovieItem movie={item} navigation={navigation} /> // Pass navigation prop
           )}
           keyExtractor={(item) => item.id.toString()}
         />
@@ -108,6 +110,11 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 10,
   },
+  text:{
+    marginTop:120,
+    textAlign:'center',
+    fontSize:30
+  }
 });
 
 export default SearchScreen;

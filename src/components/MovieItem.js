@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import MovieDetails from '../containers/MovieDetails';
 
 const MovieItem = ({ movie }) => {
   const navigation = useNavigation();  // For navigating to the details page
@@ -16,12 +17,16 @@ const MovieItem = ({ movie }) => {
       {/* Movie Title and Info */}
       <View style={styles.details}>
         <Text style={styles.title}>{movie.title}</Text>
-        <Text style={styles.rating}>Rating: {movie.vote_average}</Text>
+        {/* Movie Popularity */}
+      <Text style={styles.popularity}>Popularity: {movie.popularity}</Text>
+      
+      {/* Movie Release Date */}
+      <Text style={styles.releaseDate}>Release Date: {movie.release_date}</Text>
         
         {/* More Details Button */}
         <Button 
           title="More Details"
-          onPress={() => navigation.navigate('MovieDetails', { id: movie.id })}
+          onPress={() => navigation.navigate('Details', { id: movie.id })}
         />
       </View>
     </View>
@@ -51,6 +56,17 @@ const styles = StyleSheet.create({
   },
   rating: {
     marginVertical: 5,
+  },
+  popularity: {
+    fontSize: 16,
+   
+    color: '#444',
+   
+  },
+  releaseDate: {
+    fontSize: 16,
+   
+    color: '#444',
   },
 });
 

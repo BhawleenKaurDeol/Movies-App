@@ -25,7 +25,7 @@
  
 import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
-import { fetchMovies } from '../api';  // Your movie fetching API function
+import { fetchMovies } from '../services/api';  // Your movie fetching API function
 
 const MovieDetails = ({ route }) => {
   const { id } = route.params;

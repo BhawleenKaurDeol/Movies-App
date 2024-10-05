@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { TMDB_API_KEY } from '@env';
 
-const API_KEY = process.env.TMDB_API_KEY;
+const API_KEY = TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 export const fetchMovies = async (endpoint) => {
